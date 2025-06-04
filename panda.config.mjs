@@ -12,7 +12,18 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        contentStyles: {
+          heading: {
+            description: "Estilo padrao para os conteudos",
+            value: {
+              textAlign: "center"
+            }
+          }
+        }
+      }
+    },
   },
 
   // The output directory for your css system

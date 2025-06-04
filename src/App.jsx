@@ -1,27 +1,60 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useState, useEffect } from "react";
+
+import ContentMobile from './components/content/ContentMobile';
+import ContentLaptop from './components/content/ContentLaptop';
+import ContentDesktop from './components/content/ContentDesktop';
+import Networks from "./components/socialMedia/Networks";
+
+import { css } from "../styled-system/css";
+
+function useBreakpoint() {
+  const [breakpoint, setBreakpoint] = useState("");
+
+  useEffect(() => {
+    function handleResize() {
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        setBreakpoint("mobile");
+      } else if (width < 1280) {
+        setBreakpoint("laptop");
+      } else {
+        setBreakpoint("desktop");
+      }
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return breakpoint;
+}
 
 function App() {
+  const bp = useBreakpoint();
+  console.log("bp =>", bp);
 
   return (
     <div>
-      <h1>Curso para medicos</h1>
+      <h1 className={css({
+        fontSize: {
+          base: "2.4em",
+          md: "3em"
+        },
+        textAlign: "center",
+        lineHeight: "none"
+      })}>
+        Curso para medicos
+      </h1>
+
       { /* Componente: Div de conteudo */ }
       <div>
-        { /* Celular: 1 paragrafo */ }
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem reprehenderit neque blanditiis doloremque quia quis molestiae nam. Adipisci assumenda impedit cum voluptate officia dignissimos, modi totam! Ipsum velit aliquid consequatur.
-        </p>
-        <br />
-        { /* Tablet: 2 paragrafos */ }
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem reprehenderit neque blanditiis doloremque quia quis molestiae nam. Adipisci assumenda impedit cum voluptate officia dignissimos, modi totam! Ipsum velit aliquid consequatur.
-        </p>
-        <br />
-        { /* Computador: 3 paragrafos */ }
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem reprehenderit neque blanditiis doloremque quia quis molestiae nam. Adipisci assumenda impedit cum voluptate officia dignissimos, modi totam! Ipsum velit aliquid consequatur.
-        </p>
+        {bp === "mobile" && <ContentMobile />}
+        {bp === "laptop" && <ContentLaptop />}
+        {bp === "desktop" && <ContentDesktop />}
       </div>
+      
       { /* Botao abertura do modal */ }
       <div>
         <img src="/images/medica.png" alt="Medica" />
@@ -30,14 +63,7 @@ function App() {
         </button>
       </div>
       { /* Componente: Redes sociais */ }
-      <div>
-        <a href="https://github.com/Samuel-Nun3s" target="blank" rel="external">
-          <FaGithub />
-        </a>
-        <a href="https://www.linkedin.com/in/samuel-nunes-5b4b72270/" target="blank" rel="external">
-          <FaLinkedin />
-        </a>
-      </div>
+      <Networks />
       { /* Componente: Modal */ }
       <div>
         <form>
