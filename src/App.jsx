@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 import ContentMobile from './components/content/ContentMobile';
 import ContentLaptop from './components/content/ContentLaptop';
 import ContentDesktop from './components/content/ContentDesktop';
-import Networks from "./components/socialMedia/Networks";
+import Networks from './components/socialMedia/Networks';
 
-import { css } from "../styled-system/css";
+import { css } from '../styled-system/css';
+import { contentStyles } from '../styled-system/recipes';
 
 function useBreakpoint() {
   const [breakpoint, setBreakpoint] = useState("");
@@ -33,7 +34,6 @@ function useBreakpoint() {
 
 function App() {
   const bp = useBreakpoint();
-  console.log("bp =>", bp);
 
   return (
     <div>
@@ -49,21 +49,33 @@ function App() {
       </h1>
 
       { /* Componente: Div de conteudo */ }
-      <div>
+      <div className={contentStyles()}>
         {bp === "mobile" && <ContentMobile />}
         {bp === "laptop" && <ContentLaptop />}
         {bp === "desktop" && <ContentDesktop />}
       </div>
       
-      { /* Botao abertura do modal */ }
-      <div>
+      <div
+        className={css({
+          position: "relative"
+        })}
+        >
         <img src="/images/medica.png" alt="Medica" />
-        <button>
+        { /* Botao abertura do modal */ }
+        <button className={css({
+          padding: "10px",
+          position: "absolute",
+          bottom: 10,
+          left: "50%",
+          transform: "translate(-50%, 0%)",
+          backgroundColor: "white",
+          border: "1px solid black",
+          borderRadius: "10px"
+        })}>
           Cadastrar
         </button>
+        {bp === "mobile" && <Networks />}
       </div>
-      { /* Componente: Redes sociais */ }
-      <Networks />
       { /* Componente: Modal */ }
       <div>
         <form>

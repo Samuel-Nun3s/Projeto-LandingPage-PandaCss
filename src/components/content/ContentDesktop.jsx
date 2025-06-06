@@ -1,5 +1,3 @@
-import { contentStyles } from 
-
 function ContentDesktop() {
   return (
     <>

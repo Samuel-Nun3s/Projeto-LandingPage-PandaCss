@@ -13,13 +13,26 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {
-      tokens: {
+      recipes: {
         contentStyles: {
-          heading: {
-            description: "Estilo padrao para os conteudos",
-            value: {
-              textAlign: "center"
-            }
+          description: "Estilo padrao para os conteudos",
+          base: {
+            textAlign: "center"
+          }
+        },
+        networks: {
+          description: "Estilo padrao dos links para as redes sociais",
+          base: {
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "black",
+            color: "white",
+            mr: "10px",
+            marginBottom: "5px"
           }
         }
       }
