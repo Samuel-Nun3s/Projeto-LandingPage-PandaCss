@@ -37,7 +37,10 @@ export default defineConfig({
             padding: "17px",
             backgroundColor: "rgba(255, 255, 255, 0.250)",
             boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.3)",
-            borderRadius: "20px"
+            borderRadius: "20px",
+            md: {
+              fontSize: "1.4em"
+            }
           }
         },
         networks: {

@@ -7,6 +7,7 @@ import Networks from './components/socialMedia/Networks';
 
 import { css } from '../styled-system/css';
 import { contentStyles } from '../styled-system/recipes';
+import Button from './components/forms/Button';
 
 function useBreakpoint() {
   const [breakpoint, setBreakpoint] = useState("");
@@ -34,7 +35,6 @@ function useBreakpoint() {
 
 function App() {
   const bp = useBreakpoint();
-  console.log("bp =>", bp);
 
   return (
     <>
@@ -80,33 +80,15 @@ function App() {
               width: "600px",
               ...(bp != "mobile" && {
                 position: "relative",
-                right: "-80px"
+                right: "-160px"
               })
             })}
           />
           { /* Botao abertura do modal */ }
-          <button className={css({
-            padding: "10px",
-            position: "absolute",
-            bottom: 10,
-            left: "50%",
-            transform: "translate(-50%, 0%)",
-            backgroundColor: "rgb(55, 161, 50)",
-            color: "#DAE3EC",
-            border: "none",
-            fontSize: "1.3em",
-            fontWeight: "bold",
-            boxShadow: "0px 0px 20px black",
-            borderRadius: "10px",
-            transition: ".4s",
-            _hover: {
-              backgroundColor:"rgb(55, 190, 48)",
-              cursor: "pointer",
-              transform: "translate(-50%, -25%)"
-            }
-          })}>
-            Register
-          </button>
+          <Button 
+            textButton="Register"
+            wd={bp}
+          />
           <Networks
             direction={bp === "mobile" ? "column" : "row"}
           />
