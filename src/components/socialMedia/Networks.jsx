@@ -2,12 +2,12 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { css } from "../../../styled-system/css";
 import { networks } from "../../../styled-system/recipes";
 
-function Networks() {
+function Networks({direction}) {
   return (
     <div className={css({
       height: "auto",
       display: "flex",
-      flexDirection: "column",
+      flexDirection: direction,
       position: "absolute",
       bottom: 0,
       right: 0
