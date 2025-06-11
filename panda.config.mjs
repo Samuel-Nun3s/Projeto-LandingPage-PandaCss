@@ -35,12 +35,33 @@ export default defineConfig({
           base: {
             textAlign: "center",
             padding: "17px",
-            backgroundColor: "rgba(255, 255, 255, 0.250)",
+            backgroundColor: "rgba(255, 255, 255, 0.35)",
             boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.3)",
             borderRadius: "20px",
             md: {
-              fontSize: "1.4em"
+              fontSize: "1.6em"
             }
+          },
+          variants: {
+            direction: {
+              column: {
+                display: "flex",
+                flexDirection: "column"
+              },
+              row: {
+                display: "flex",
+                flexDirection: "row"
+              }
+            },
+            width: {
+              laptop: {
+                width: "50%",
+                marginLeft: "20px"
+              }
+            }
+          },
+          defaultVariants: {
+            direction: "column"
           }
         },
         networks: {

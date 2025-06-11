@@ -60,7 +60,7 @@ function App() {
         </h1>
 
         { /* Componente: Div de conteudo */ }
-        <div className={contentStyles()}>
+        <div className={contentStyles(bp != "mobile" ?{ direction: "column", width: "laptop" } : {})}>
           {bp === "mobile" && <ContentMobile />}
           {bp === "laptop" && <ContentLaptop />}
           {bp === "desktop" && <ContentDesktop />}
@@ -77,8 +77,9 @@ function App() {
             src="/images/medica.png"
             alt="Medica"
             className={css({
-              width: "600px",
+              width: "100%",
               ...(bp != "mobile" && {
+                width: "600px",
                 position: "relative",
                 right: "-160px"
               })

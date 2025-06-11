@@ -8,7 +8,7 @@ function Button({textButton, wd}) {
         position: "absolute",
         bottom: 10,
         left: wd != "mobile" ? "0" : "50%",
-        transform: wd != "mobile" ? "translate(-30%, 0%)" : "translate(-50%, 0%)",
+        transform: wd != "mobile" ? "translate(-20%, 0%)" : "translate(-50%, 0%)",
         backgroundColor: "rgb(55, 161, 50)",
         color: "#DAE3EC",
         border: "none",
