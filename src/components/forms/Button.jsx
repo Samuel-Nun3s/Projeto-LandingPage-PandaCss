@@ -20,7 +20,7 @@ function Button({textButton, wd}) {
         _hover: {
           backgroundColor:"rgb(55, 190, 48)",
           cursor: "pointer",
-          transform: "translate(-50%, -25%)"
+          transform: wd != "mobile" ? "translate(-30%, -25%)" : "translate(-50%, -25%)"
         }
       })}
     >
