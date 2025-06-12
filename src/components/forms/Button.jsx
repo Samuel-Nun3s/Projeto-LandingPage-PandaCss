@@ -1,8 +1,9 @@
 import { css } from '../../../styled-system/css';
 
-function Button({textButton, wd}) {
+function Button({ textButton, wd, action }) {
   return (
     <button
+      onClick={action}
       className={css({
         padding: "10px",
         position: "absolute",

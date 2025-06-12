@@ -8,6 +8,7 @@ import Networks from './components/socialMedia/Networks';
 import { css } from '../styled-system/css';
 import { contentStyles } from '../styled-system/recipes';
 import Button from './components/forms/Button';
+import Modal from './components/modal/Modal';
 
 function useBreakpoint() {
   const [breakpoint, setBreakpoint] = useState("");
@@ -34,8 +35,14 @@ function useBreakpoint() {
 }
 
 function App() {
+  const [statusModal, setStatusModal] = useState(false);
+
   const bp = useBreakpoint();
-  console.log("bp =>", bp);
+
+  function handleModal() {
+    setStatusModal(!statusModal);
+    console.log("statusModal =>", statusModal);
+  }
 
   return (
     <>
@@ -101,6 +108,7 @@ function App() {
             <Button 
               textButton="Register"
               wd={bp}
+              action={handleModal}
             />
           </div>
           <Networks
@@ -109,25 +117,10 @@ function App() {
         </div>
       </div>
         
-        { /* Componente: Modal */ }
-      <div></div>
-      <div
-        className={css({
-          display: "none"
-        })}
-      >
-        <form>
-          <div>
-            <input type="text" />
-          </div>
-          <div>
-            <input type="text" />
-          </div>
-          <button>
-            Cadastrar
-          </button>
-        </form>
-      </div>
+      { /* Componente: Modal */ }
+      <Modal
+        status={statusModal}
+      />
     </>
   )
 }

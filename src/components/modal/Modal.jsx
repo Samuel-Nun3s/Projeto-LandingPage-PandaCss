@@ -1,10 +1,12 @@
+import { useEffect, useState } from "react";
 import { css } from "../../../styled-system/css";
 
-function Modal() {
+function Modal({ status }) {
   return (
     <>
       <div
         className={css({
+          display: status ? "block" : "none",
           position: "fixed",
           top: "0",
           left: "0",
@@ -15,7 +17,26 @@ function Modal() {
         })}
       >
       </div>
-      <div></div>
+      <div
+        className={css({
+          display: status ? "block" : "none"
+        })}
+      >
+        <div>
+          <h2>Secure your spot</h2>
+        </div>
+        <form>
+          <div>
+            <input type="text" />
+          </div>
+          <div>
+            <input type="text" />
+          </div>
+          <button>
+            Register
+          </button>
+        </form>
+      </div>
     </>
   )
 }
