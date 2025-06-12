@@ -35,12 +35,13 @@ export default defineConfig({
           base: {
             textAlign: "center",
             padding: "17px",
-            backgroundColor: "rgba(255, 255, 255, 0.35)",
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
             boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.3)",
             borderRadius: "20px",
-            md: {
-              fontSize: "1.6em"
-            }
+            fontSize: {
+              base: "17px",
+              md: "26px"
+            },
           },
           variants: {
             direction: {
@@ -57,6 +58,9 @@ export default defineConfig({
               laptop: {
                 width: "50%",
                 marginLeft: "20px"
+              },
+              desktop: {
+                width: "60%"
               }
             }
           },

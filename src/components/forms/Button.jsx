@@ -12,7 +12,7 @@ function Button({textButton, wd}) {
         backgroundColor: "rgb(55, 161, 50)",
         color: "#DAE3EC",
         border: "none",
-        fontSize: "1.3em",
+        fontSize: wd != "mobile" ? "1.4em" : "1em",
         fontWeight: "bold",
         boxShadow: "0px 0px 20px black",
         borderRadius: "10px",
@@ -20,7 +20,7 @@ function Button({textButton, wd}) {
         _hover: {
           backgroundColor:"rgb(55, 190, 48)",
           cursor: "pointer",
-          transform: wd != "mobile" ? "translate(-30%, -25%)" : "translate(-50%, -25%)"
+          transform: wd != "mobile" ? "translate(-20%, -25%)" : "translate(-50%, -25%)"
         }
       })}
     >

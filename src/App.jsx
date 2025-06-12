@@ -35,6 +35,7 @@ function useBreakpoint() {
 
 function App() {
   const bp = useBreakpoint();
+  console.log("bp =>", bp);
 
   return (
     <>
@@ -58,43 +59,56 @@ function App() {
         })}>
           Course for doctors
         </h1>
-
-        { /* Componente: Div de conteudo */ }
-        <div className={contentStyles(bp != "mobile" ?{ direction: "column", width: "laptop" } : {})}>
-          {bp === "mobile" && <ContentMobile />}
-          {bp === "laptop" && <ContentLaptop />}
-          {bp === "desktop" && <ContentDesktop />}
-        </div>
         
         <div
           className={css({
-            position: "fixed",
-            bottom: "0",
-            right: bp === "laptop" || bp === "desktop" ? "0" : ""
+            width: "100%",
+            display: "flex",
+            flexDirection: {
+              sm: "column",
+              md: "row"
+            }
           })}
-          >
-          <img 
-            src="/images/medica.png"
-            alt="Medica"
+        >
+          { /* Componente: Div de conteudo */ }
+          <div className={contentStyles(bp != "mobile" ? (bp == "laptop" ? { direction: "column", width: "laptop" } : { direction: "column", width: "desktop" }) : {})}>
+            {bp === "mobile" && <ContentMobile />}
+            {bp === "laptop" && <ContentLaptop />}
+            {bp === "desktop" && <ContentDesktop />}
+          </div>
+
+          <div
             className={css({
               width: "100%",
-              ...(bp != "mobile" && {
-                width: "600px",
-                position: "relative",
-                right: "-160px"
-              })
+              position: "fixed",
+              bottom: "0",
+              right: bp === "laptop" || bp === "desktop" ? "-40%" : "0"
             })}
-          />
-          { /* Botao abertura do modal */ }
-          <Button 
-            textButton="Register"
-            wd={bp}
-          />
+            >
+            <img 
+              src="/images/medica.png"
+              alt="Medica"
+              className={css({
+                width: "100%",
+                ...(bp != "mobile" && {
+                  width: "600px",
+                  position: "relative",
+                  left: bp === "desktop" && "200px"
+                })
+              })}
+            />
+            
+            <Button 
+              textButton="Register"
+              wd={bp}
+            />
+          </div>
           <Networks
-            direction={bp === "mobile" ? "column" : "row"}
+            direction={bp == "mobile" ? "column" : "row"}
           />
         </div>
       </div>
+        
         { /* Componente: Modal */ }
       <div
         className={css({

@@ -12,15 +12,21 @@
     height: 100vh;
   }
 
+  body {
+    max-width: 1000px;
+    margin: auto;
+  }
+
   #root {
     padding: 7px;
+    width: 100%;
   }
 }
 
 @layer base {
   body {
     background-image: url("/images/background.jpg");
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 }
