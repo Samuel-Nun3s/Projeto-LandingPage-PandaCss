@@ -87,6 +87,49 @@ export default defineConfig({
               transform: "translate(-11%, -5%)"
             }
           }
+        },
+        button: {
+          description: "Estilo padrao dos botoes",
+          base: {
+            color: "#DAE3EC",
+            border: "none",
+            fontWeight: "bold",
+            boxShadow: "0px 0px 20px black",
+            borderRadius: "10px",
+            transition: ".4s",
+            _hover: {
+              cursor: "pointer",
+            }
+          },
+          variants: {
+            variant: {
+              primary: {
+                padding: "10px",
+                position: "absolute",
+                bottom: "10",
+                left:  {
+                  sm: "50%",
+                  md: "0"
+                },
+                transform: {
+                  sm: "translate(-50%, 0%)",
+                  md: "translate(-20%, 0%)"
+                },
+                backgroundColor: "rgb(55, 161, 50)",
+                fontSize: {
+                  sm: "1em",
+                  md: "1.4em"
+                },
+                _hover: {
+                  backgroundColor:"rgb(55, 190, 48)",
+                  transform: {
+                    sm: "translate(-50%, -25%)",
+                    md: "translate(-20%, -25%)"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

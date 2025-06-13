@@ -107,8 +107,8 @@ function App() {
             
             <Button 
               textButton="Register"
-              wd={bp}
               action={handleModal}
+              type="primary"
             />
           </div>
           <Networks
@@ -120,6 +120,7 @@ function App() {
       { /* Componente: Modal */ }
       <Modal
         status={statusModal}
+        action={handleModal}
       />
     </>
   )

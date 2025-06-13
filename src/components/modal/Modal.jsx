@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
 import { css } from "../../../styled-system/css";
 
-function Modal({ status }) {
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import Button from "../forms/Button";
+
+function Modal({ status, action }) {
   return (
     <>
       <div
@@ -19,10 +21,25 @@ function Modal({ status }) {
       </div>
       <div
         className={css({
-          display: status ? "block" : "none"
+          display: status ? "block" : "none",
+          padding: "15px",
+          borderRadius: "10px",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "#526B6F",
+          zIndex: "7"
         })}
       >
         <div>
+          <div>
+            <Button 
+              textButton={<IoMdCloseCircleOutline />}
+              action={action}
+              type="close"
+            />
+          </div>
           <h2>Secure your spot</h2>
         </div>
         <form>
